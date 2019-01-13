@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SweetAlert</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.0.1/sweetalert.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.0.1/sweetalert.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <form>
+        <input type="text" name="name" id="username" placeholder="Username"><br>
+        <input type="password" name="pass" id="pass" placeholder="Password">
+        <button type="submit" class="js-btn btn btn-success" onclick="validation();">Submit</button>
+    </form>
+</div>
+<script>
+   $('.js-btn').click(function (e) {
+       e.preventDefault();
+        //https://cdnjs.com/libraries/sweetalert/1.0.1(cdn link)
+        var username ="sujeet";
+        var password ="1234";
+
+        var uname = $('#username').val();
+        var pass = $('#pass').val();
+
+        if(( username == uname ) && (password == pass)){
+            swal("Good job!", "You detail has been matched", "success");
+        }else{
+            swal("Oops...!", "Something went wrong", "error");
+        }
+    });
+</script>
+</body>
+</html>
