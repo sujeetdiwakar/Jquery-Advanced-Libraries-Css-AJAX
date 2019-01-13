@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lite Box</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="dist/js/lightbox-plus-jquery.min.js"></script>
+    <link rel="stylesheet" href="dist/css/lightbox.min.css">
+</head>
+<style>
+    .gallery{
+        margin: 10px 50px;
+    }
+    .gallery img{
+        width: 250px;
+        paddding: 5px;
+        filter: grayscale(100%);
+        transition: 1s;
+    }
+
+    .gallery img:hover{
+        filter: grayscale(0%);
+        transform: scale(1.1);
+    }
+</style>
+<body>
+<div class="container"><br>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="gallery">
+               <a href="dist/images/image-1.jpg" data-lightbox="image-1" data-title="Image 1"> <img src="dist/images/image-1.jpg"></a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="gallery">
+               <a href="dist/images/image-2.jpg" data-lightbox="image-2" data-title="Image 2"> <img src="dist/images/image-2.jpg"></a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="gallery">
+               <a href="dist/images/image-3.jpg" data-lightbox="image-3" data-title="Image 3"> <img src="dist/images/image-3.jpg"></a>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="gallery">
+                <a href="dist/images/image-1.jpg" data-title="Image 1" data-lightbox="my-gallery"> <img src="dist/images/image-1.jpg"></a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="gallery">
+                <a href="dist/images/image-2.jpg" data-title="Image 2" data-lightbox="my-gallery"> <img src="dist/images/image-2.jpg"></a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="gallery">
+                <a href="dist/images/image-3.jpg" data-title="Image 3" data-lightbox="my-gallery"> <img src="dist/images/image-3.jpg"></a>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
