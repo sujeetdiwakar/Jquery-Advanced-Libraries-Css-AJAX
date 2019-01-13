@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data Export</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--table export -->
+    <!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/5.2.0/js/tableexport.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.1/base64.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sprintf/1.1.2/sprintf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    -->
+
+    <script src="tableExport/tableExport.js"></script>
+    <script src="tableExport/jquery.base64.js"></script>
+    <script src="tableExport/html2canvas.js"></script>
+    <script src="tableExport/jspdf/libs/sprintf.js"></script>
+    <script src="tableExport/jspdf/jspdf.js"></script>
+    <script src="tableExport/jspdf/libs/base64.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="btn-group pull-right" style=" padding: 10px;">
+            <button id="export" style="height: auto; width: auto;" onClick="$('#employees').tableExport({type:'pdf',escape:'false'});">Click Here for PDF!</button>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <span class="glyphicon glyphicon-th-list"></span>Dropdown
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li>
+                        <a href="#" onclick="$('#employees').tableExport({type:'json',escape:'false'});">
+                            Json
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="$('#employees').tableExport({type:'json',escape:'false',ignoreColumn:'[2,3]'});">
+                            Json(Ignore Column)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="$('#employees').tableExport({type:'json',escape:'true'});">
+                            Json(With Escape)
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h2>Bordered Table</h2>
+        <p>The .table-bordered class adds borders to a table:</p>
+        <table id="employees" class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+            </tr>
+            <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+            </tr>
+            <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+</div>
+
+</body>
+</html>

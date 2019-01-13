@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--References
+        https://technoscripts.com/export-html-table/
+        https://github.com/kayalshri/tableExport.jquery.plugin
+    -->
+    <meta charset="utf-8">
+    <title>Export HTML table to Excel / CSV / PDF / JSON / PNG / WORD / XML / TXT using jQuery</title><meta name="description" content="DataTables is a plug-in for the jQuery JavaScript library.">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <!-- export plug-in files start-->
+    <!-- <script src="libs/jquery-1.11.1.min.js"></script>-->
+    <script type="text/javascript" src="libs/tableExport.js"></script>
+    <script type="text/javascript" src="libs/base64.js"></script>
+    <script type="text/javascript" src="libs/html2canvas.js"></script>
+    <script type="text/javascript" src="libs/sprintf.js"></script>
+    <script type="text/javascript" src="libs/jspdf.js"></script>
+    <script type="text/javascript" src="libs/jquery.base64.js"></script>
+    <script type="text/javascript">
+        <!-- export plug-in files end-->
+        <!-- Toggle Button code start-->
+        $(document).ready(function () {
+            $("#exportButton").click(function () {
+                $("#exportTable").toggle();
+            });
+            /*
+            $('#exportTable a').click(function(e){
+                e.preventDefault();
+                var url='data:application/vnd.ms-excel,' + encodeURIComponent($('#tableWrap').html())
+                location.href=url
+                return false
+            })
+            */
+        });
+    </script>
+    <!-- Toggle Button code end-->
+</head>
+
+<body style="margin:20px auto">
+<div class="container">
+    <div class="row header" style="text-align:center;color:green">
+        <h3>Export HTML table to Excel / Word / PDF / JSON / PNG / XML / CSV / TXT / SQL</h3>
+        <button data-toggle="exportTable" id="exportButton" class="btn btn-primary">click here to Export Data</button><br/><br/>
+        <div id="exportTable" style="display:none;">
+            <a href="#" onClick ="$('#myTable').tableExport({type: 'json', escape: 'false'});"><img src='images/json.png' width="24"/> JSON</a>
+            <a href="#" onClick ="$('#myTable').tableExport({type: 'json', escape: 'false', ignoreColumn: '[2,3]'});"><img src='images/json.png' width="24"/> JSON (ignoreColumn)</a>
+            <a href="#" onClick ="$('#myTable').tableExport({type: 'json', escape: 'true'});"><img src='images/json.png' width="24"/> JSON (with Escape)</a>
+            <a href="#" onClick ="$('#myTable').tableExport({type: 'xml', escape: 'false'});"><img src='images/xml.png' width="24"/> XML</a>
+            <a href="#" onClick ="$('#myTable').tableExport({type: 'sql'});"><img src='images/sql.png' width="24"/> SQL</a>
+            <a href="#" onClick ="$('#myTable').tableExport({type: 'csv', escape: 'false'});"><img src='images/csv.png' width="24"/> CSV</a>
+            <a href="#" onClick ="$('#myTable').tableExport({type: 'txt', escape: 'false'});"><img src='images/txt.png' width="24"/> TXT</a>
+            <a href="#" onClick ="$('#myTable').tableExport({type: 'excel', escape: 'false'});"><img src='images/xls.png' width="24"/> XLS</a>
+            <a href="#" onClick ="$('#myTable').tableExport({type: 'doc', escape: 'false'});"><img src='images/word.png' width="24"/> Word</a>
+            <a href="#" onClick ="$('#myTable').tableExport({type: 'powerpoint', escape: 'false'});"><img src='images/ppt.png' width="24"/> PowerPoint</a>
+            <a href="#" onClick ="$('#myTable').tableExport({type: 'png', escape: 'false'});"><img src='images/png.png' width="24"/> PNG</a>
+            <a href="#" onClick ="$('#myTable').tableExport({type: 'pdf', escape: 'false'});"><img src='images/pdf.png' width="24"/> PDF</a>
+
+        </div><br/>
+    </div>
+    <table id="myTable" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Sr.No</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Salary</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>001</td>
+            <td>Rahul</td>
+            <td>India</td>
+            <td>20000</td>
+        </tr>
+        <tr>
+            <td>002</td>
+            <td>Charles</td>
+            <td>United Kingdom</td>
+            <td>28000</td>
+        </tr>
+        <tr>
+            <td>003</td>
+            <td>Menshril</td>
+            <td>Australia</td>
+            <td>70000</td>
+        </tr>
+        <tr>
+            <td>004</td>
+            <td>Ganesh</td>
+            <td>India</td>
+            <td>18000</td>
+        </tr>
+        <tr>
+            <td>005</td>
+            <td>Maithili</td>
+            <td>India</td>
+            <td>12000</td>
+        </tr>
+        <tr>
+            <td>006</td>
+            <td>Pavan</td>
+            <td>India</td>
+            <td>50000</td>
+        </tr>
+
+        <tr>
+            <td>007</td>
+            <td>Rakesh</td>
+            <td>US</td>
+            <td>75000</td>
+        </tr>
+        <tr>
+            <td>008</td>
+            <td>Mayur</td>
+            <td>India</td>
+            <td>100000</td>
+        </tr>
+        <tr>
+            <td>009</td>
+            <td>NiRRaNjan</td>
+            <td>India</td>
+            <td>85000</td>
+        </tr>
+
+        <tr>
+            <td>010</td>
+            <td>Tanmay</td>
+            <td>Austria</td>
+            <td>30000</td>
+        </tr>
+        <tr>
+            <td>011</td>
+            <td>Sara</td>
+            <td>India</td>
+            <td>750000</td>
+        </tr>
+        <tr>
+            <td>012</td>
+            <td>JonRoot</td>
+            <td>India</td>
+            <td>65000</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+<script>
+    $(document).ready(function(){
+        $('#myTable').dataTable();
+    });
+</script>
+</html>
